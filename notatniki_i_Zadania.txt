@@ -1,0 +1,143 @@
+PRZED KURSEM:
+
+
+- ankiet zrobić o to jak oceniaja swoją umiejętność poszególnych zagadenień pythonowych 
+ (obsługa słowników, operacje na napisach, wyrażenie listotwórcze, programowanie obiektowe)
+---
+Dobre źródła do Pythona:
+- realpython.com
+- https://www.geeksforgeeks.org/python-programming-language/
+- https://www.geeksforgeeks.org/python-exercises-practice-questions-and-solutions/
+- https://python3.info/ 
+- https://www.w3schools.com/python/default.asp
+
+Dać jakieś źródło do wiedzy i ćwiczeń SQL-a
+
+---
+Uwagi:
+- czy zrobić gdzieś regexy?
+
+
+---
+ZADANIA
+
+Sort a tuple of tuples by 2nd item tuple1 = (('a', 23),('b', 37),('c', 11), ('d',29))
+  
+* napisz funkcję zwracającą elementy wspólne z dwóch list (pętla / listotwórcze / list(set([*a, *b]))
+  
+**napisz funkcje liczącą koszt listy zakupów przyjmując:
+  - cennik: słownik produkt:koszt jednostkowy
+  - a) liste produktów aa-pętla, ab-listotwórcze b) słownik produkt:ilość (jest gotowa funkcja sum)
+
+** Napisz funkcję, która dla danego napisu wejściowego, zwróci słownik postaci słowo:lista_wystąpień_słowa. 
+ Zakładamy, że słowa to ciągi liter rozdzielone spacjami (jeśli do słow przyklejona są znaki int., to musimy je usunąć).
+  
+  
+2. Wyrażenia listotwórcze:
+ - z listy list wybierz te, które mają wszystkie wartości większe niż 10
+ - z listy liczb i None zrobi liste wart bezwglę i None bez zmian
+ - uzupełniania braków (None) wartościa 0
+ - zamienienie listy słów na liste slów wielkimi literami
+ - z listy napisow wybierz napisy dłuższe niż x
+ - z listy owoców, wybierz te kończace się na "a" ([-1] i .endswith)
+
+słowniki:
+**https://python3.info/basics/loop/for-dict.html: Assignment A., Assignment B.
+
+3. Wyrażenia słownikotwórcze:
+
+ - z dict pesel:imie naz wybierz osoby o imieniu jan {pesel:name for pesel, name in person_base.items() if name.split[0] == "Jan"}
+ - z dict pesel:imie naz stwórz liste pesel osób o imieniu jan (pesel for pesel, name in person_base.items() if name.split[0] == "Jan")
+
+  
+Słowniki:
+** system rekomendacyjny:
+- mamy baze osób i baze filmów 
+- mamy baze {osoba:{filmów:ocena}} zawierajacy to co dana osoba obejrzała i ocene
+- funkcjonalnosc dla osoby x, która ma historie {filmy:oceny}...
+- funkcja recommend, która zwraca listę uporządkowanych scorem krotek (film, score), gdzie score, to:
+ a) średnia ocena danego filmu ze wszystkich ocen w bazie
+ b) średnia ocena danego filmu ze ocen osób, które mają obejrzany przynajmniej jedan taki sam film, 
+    jak osoba dla, której generujemy rekomendacje (jelsi nie ma takiej osoby, to średnia globalna)
+ c) średnia ważona suma(podobieństwo osoby * ocena)/suma(podobieństw) dla osób, które obejrzały dany film, gdzie podobieństwo 
+ to liczba wspólnych filmów w historii, których oceny nie rożnią się o więcej niż 1
+  
+
+* string formatted
+  - a) "Liczba wystapien znaku 'x' w tekście 'y': z."  - funkcja z arg x,y,z
+    b) napis funkcję, która stworzy listę unikalnych znaków i wypisze w pętli w powyższym formacie ich liczności
+  - funckja: na podstawie listy osób [x, y, z, ...] zwróć napis "Witamy serdecznie w naszym gronie nowe osoby: x, y, z, ...".
+    (wskazówka: po drodze trzeb azaminić liste [x, y, z] na napis "x, y, z")
+
+- Funkcja skracacz linków: 
+ - na wstępie: wygenerować sztuczne dane dużo linków postaci www.dsafsfa.pl 
+  (zaimplementować funkcję, która to robi -rozbić na dwa kroki:
+  najpierw jednej funkcji, a potem generowanie pojedyncze wynies do funkcji pomocniczej)
+ - baza skrot-link jako słownik zmienna zewnętrzna (globalna)?
+ - funkcja zaminiająca link na skrót sprawdza czy jest w bazie, jeśli tak to zwraca, 
+   jeśli nie to tworzy zwraca i aktualizuje bazę
+ - funkcja dekodująca skrót na link, wyrzucająca błąd jeśli nie ma link w bazie
+   
+
+ - z listy osob postaci "imię nazwisko" stwórz słownik IMINAZ:"imię nazwisko" (im[:3]+naz[:3]).upper()). 
+   a) zakąłdajc, że wartości sa unikalne
+   b) jeśli to sie powtarza, dodawać kolejne literski danego skrótu. 
+      (można słownk pomocniczy zrobić, z skrót:liczność, żeby za każdej razem nie wydobywać tej informacji od nowa)
+
+1. podział listy wartości na liste spełniająca jakis warunek i nie (np. dodatnie niedodatnie), slowa z wielkiej i pozostałe
+- funkcja zwracająca krotkę (pokazć _, gdy nie potrzebujemy)
+* podział dwóch list x, y, na pary x_train, x_test, y_train, y_test, gdzie train to pierwszych k% elementów 
+  ** na argsy - rozwinięcie do dowolnej liczby tego [najpierw jedna lista, potem dwie, potem dowolna liczba *args]
+
+
+
+
+
+* najpierw pokazać operatory rozpakowywania * i **, a potem *args i ** kwargs, 
+jako operacje odwrotne- czyli informujemy funkcje, że podajemy coś rozpakowanego i 
+chcemy to spakować do zmiennej args lub kwargs
+ - a) ćwiczenie na *args i rozpakowywania * - napisz funkcję, która generuje 
+   kombinacje napisów na podstawie dowolnej liczba list napisów (skorzystaj z itertools product
+   (def f(*args): return ["".join(x) for x in product(*args)])
+   b) napisz funkcje, która zlicza ile razy dana kombinacja, która kombinacja wystapiła (zwraca słownik)
+
+
+**Obsługa wyjątków:
+- funkcja zwracająca rożnice między wartością ostatnią, a pierwszą
+ a) warning na długość 1
+ b) błędy na długość < 2
+- jakiekolwiek sprawdanie poprawności danych (typ, wartość dodatnia/ujemna, wszystkie typy w liście)
+
+4. Ćwiczenia na lambda:
+ - zobrazowanie posortowanie listy list po dlugości sorted(l, key=len) vs key=lambda x: len(x) i z definiowaniem funkcji pomocniczej
+ - posortowanie po a) wielkości pierwszego elementu listy b) liczbie liczb dodatnich
+
+* klasa skracacz linków: 
+ - na wstępie: wygenerować sztuczne dane dużo linków postaci www.dsafsfa.pl 
+  (zaimplementować funkcję, która to robi -rozbić na dwa kroki:
+  najpierw jednej funkcji, a potem generowanie pojedyncze wynies do funkcji pomocniczej)
+ - metoda encode: funkcja zwraca skrócony link - z bazy lub tworzy nowy i dodaje, 
+ - metoda decode: zwraca link dla skrotu
+ - zapisywanie historii ile było prób gerenacji potrzebnych w ostatnich 10 generowaniach 
+   - jeśli np. w 5 ostatnich były potrzebne przynajmniej 2, to wydłużyć generowane ciągi
+ - w klasie jako pole list dostepnych znaków? (letters/LETTERS z biblioteki string?)
+ - metoga get_base_size()
+ * pokazać atrybuty klasy - tutaj w kontekście takiego licznika, żeby ta klasa mogła istnieć tylko jedna (i wyrzucanie błędu)
+ 
+ Klasy na fit-transform:
+ * klasa na uzupełnienia braków w listach  (średnia, mediana, wartość najczestsza)
+ * a) klasa na przycinanie obserwacji odstających (w fit deinicja odstawania jako odstęp od średniej) 
+   b) modyfikacjaklasy na przycinanie lub usuwanie
+ * klasa na zachowywanie wartości najczęstszych i zastępowanie rzedkich specjalnym znakiem
+ 
+ Klasa na regresję liniową
+ Klasa na Kmeans
+ 
+ Dziedziczenie 
+ 
+ 
+ 
+ DO ML
+ * funckja pomocnicza robiąca diagnostykę modelu regresji - trzy wykresy obok siebie (kwargsy, do stylowania wykresów?)
+ * f. pom. d ooptymalizacji w ewaluacji model (**kwargsy do GriDSearcha, ewentualnie metryk(i) jako callabel argument
+ 
